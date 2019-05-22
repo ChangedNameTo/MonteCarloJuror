@@ -14,8 +14,8 @@ SIMULATIONS = 100000
 BANDWIDTH = .5
 # BANDWIDTH = 'silverman'
 
-CUMULATIVE = False
-# CUMULATIVE = True
+# CUMULATIVE = False
+CUMULATIVE = True
 
 jury = JuryList()
 
@@ -42,4 +42,8 @@ w_duplicates()
 
 plt.grid(which='both')
 plt.title("Likelihood of # of White people on a Jury with " + str(SIMULATIONS) + " simulations")
-plt.show()
+
+if CUMULATIVE:
+    plt.savefig('cumulative.png')
+else:
+    plt.savefig('non_cumulative.png')
